@@ -12,7 +12,7 @@ const RoleSchema = new mongoose.Schema({
     type: String
   }
 }, {
-  timestamps: true // Automatically creates createdAt and updatedAt fields
+  timestamps: true // Automatically creates createdAt and updat edAt fields
 });
 
 module.exports = mongoose.model('Role', RoleSchema);
