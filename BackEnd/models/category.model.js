@@ -15,7 +15,8 @@ const CategorySchema = new mongoose.Schema({
     },
     description: { type: String }
 }, {
-    timestamps: true // Automatically creates createdAt and updatedAt fields
+    timestamps: true ,
+     collection: 'categorie'
 });
 
 module.exports = mongoose.model('Category', CategorySchema);

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user.model'); // Import User model
-
+const User = require('../models/user.model');
+const Category = require('../models/category.model');
 // Create a new user
 router.post('/create', async (req, res) => {
   try {
@@ -78,5 +78,16 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
+// router.post('/category/create', async (req, res) => {
+//   try {
+//     // const users = await Category.find();
+//     // res.json(users);
+//     const newUser = new Category(req.body);
+//     await newUser.save();
+//     res.status(201).json(newUser);
+//   } catch (error) {
+//     res.status(400).json({ message: error.message })
+//   }
+// }
+// );
 module.exports = router;
