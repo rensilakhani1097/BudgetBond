@@ -1,18 +1,15 @@
+// routes/category.routes.js
 const express = require('express');
 const router = express.Router();
-const Category = require('../models/category.model');
+const {createCategory,
+       getAllCategories,
+       getCategoryById,
+       updateCategory,
+       deleteCategory
+} = require('../controller/categoryController');
 
+router.route('/create').post(createCategory);
+router.route('/').get(getAllCategories);
+router.route('/:id').get(getCategoryById).patch(updateCategory).delete(deleteCategory);
 
-router.post('/create', async (req, res) => {
-    try {
-      // const users = await Category.find();
-      // res.json(users);
-      const category = new Category(req.body);
-      await category.save();
-      res.status(201).json(category);
-    } catch (error) {
-      res.status(400).json({ message: error.message })
-    }
-  }
-  );
-  module.exports = router;
+module.exports = router;
